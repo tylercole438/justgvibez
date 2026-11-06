@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JUSTG_VIBEZ Photography — Abuja</title>
+<meta name="description" content="An Abuja studio making portraits, campaigns and weddings for people who care how they're remembered.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#000; --bone:#F4F2ED; --white:#fff; --gold:#F0B429; --smoke:#141414; --line:#262626;
+  --gutter:24px; --margin:80px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:Inter,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 var(--margin)}
+h1,h2,h3{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:-.01em}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+.rule{height:1px;background:var(--line);width:100%}
+
+/* preloader */
+#pre{position:fixed;inset:0;background:var(--ink);z-index:200;display:grid;place-items:center;transition:opacity .5s,visibility .5s}
+#pre.done{opacity:0;visibility:hidden}
+#pre span{font-family:Anton;font-size:14px;letter-spacing:.4em;color:var(--gold)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;height:64px;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 var(--margin);background:rgba(0,0,0,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:transform .4s}
+nav.hide{transform:translateY(-100%)}
+.brand{font-family:Anton;font-size:15px;letter-spacing:.16em;text-transform:uppercase}
+.brand em{color:var(--gold);font-style:normal}
+.links{display:flex;gap:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.links a{opacity:.62;transition:opacity .2s}
+.links a:hover{opacity:1;color:var(--gold)}
+.pill{border:1px solid var(--gold);color:var(--gold);padding:9px 18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;transition:background .2s,color .2s}
+.pill:hover{background:var(--gold);color:#000}
+
+/* hero */
+header{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:var(--gutter);padding:140px var(--margin) 64px;position:relative}
+.hcopy{display:flex;flex-direction:column;gap:28px;padding-bottom:40px;max-width:560px}
+h1{font-size:clamp(44px,6.2vw,104px);font-style:italic}
+.hsub{font-size:17px;max-width:44ch;color:#B9B5AC}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{background:var(--gold);color:#000;padding:16px 30px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;border-radius:2px;font-weight:500;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:none;color:var(--bone);border:1px solid var(--line)}
+.hmedia{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line)}
+.hmedia img{transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.loaded .hmedia img{transform:scale(1)}
+.hmeta{position:absolute;left:var(--margin);bottom:20px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6d6a64;display:flex;gap:24px}
+
+/* trust */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px var(--margin);display:flex;align-items:center;gap:40px;flex-wrap:wrap;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6d6a64}
+.trust b{color:var(--bone);font-weight:400}
+
+/* sections */
+section{padding:120px var(--margin);border-bottom:1px solid var(--line)}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px}
+.shead h2{font-size:clamp(32px,4vw,72px)}
+.idx{font-size:11px;letter-spacing:.16em;color:#4a4844;font-variant-numeric:tabular-nums}
+.sintro{max-width:52ch;color:#B9B5AC;margin-bottom:56px}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter)}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);cursor:pointer}
+.card img{transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .4s}
+.card:hover img{transform:scale(1.05);filter:brightness(.72)}
+.card::after{content:"VIEW";position:absolute;right:14px;bottom:12px;font-size:10px;letter-spacing:.2em;color:var(--gold);opacity:0;transition:opacity .3s}
+.card:hover::after{opacity:1}
+.c1{grid-column:span 7;aspect-ratio:4/3}
+.c2{grid-column:span 5;aspect-ratio:3/4}
+.c3{grid-column:span 4;aspect-ratio:1/1}
+.c4{grid-column:span 4;aspect-ratio:3/4}
+.c5{grid-column:span 4;aspect-ratio:1/1}
+.c6{grid-column:span 6;aspect-ratio:3/2}
+.c7{grid-column:span 6;aspect-ratio:3/2}
+
+/* services */
+.srow{display:grid;grid-template-columns:56px 1fr 200px 56px;align-items:center;gap:24px;padding:30px 0;border-top:1px solid var(--line);transition:background .25s}
+.srow:hover{background:#0a0a0a}
+.srow:last-of-type{border-bottom:1px solid var(--line)}
+.snum{font-size:11px;color:#4a4844;font-variant-numeric:tabular-nums}
+.srow h3{font-size:clamp(22px,2.6vw,40px)}
+.srow p{font-size:14px;color:#8a867e;margin-top:6px;max-width:52ch}
+.sprice{text-align:right;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums}
+.arrow{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:14px;color:#6d6a64;transition:.25s}
+.srow:hover .arrow{border-color:var(--gold);color:var(--gold);transform:rotate(45deg)}
+
+/* process */
+.prow{display:grid;grid-template-columns:56px 220px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
+.prow h3{font-size:15px;letter-spacing:.14em}
+.prow p{font-size:14px;color:#8a867e}
+
+/* studio */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.two .img{border:1px solid var(--line);aspect-ratio:4/5;overflow:hidden}
+.two p{color:#B9B5AC;margin-bottom:18px;max-width:50ch}
+.stats{display:flex;gap:48px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.stat b{display:block;font-family:Anton;font-size:34px;color:var(--white);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6d6a64}
+
+/* faq */
+details{border-top:1px solid var(--line);padding:22px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;font-size:16px;color:var(--white)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold)}
+details[open] summary::after{content:"–"}
+details p{margin-top:14px;font-size:14px;color:#8a867e;max-width:64ch}
+
+/* contact */
+form{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);margin-top:40px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:span 2}
+label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6d6a64}
+input,select,textarea{background:none;border:0;border-bottom:1px solid var(--line);color:var(--bone);font-family:Inter;font-size:15px;padding:10px 0;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+select option{background:#0a0a0a}
+textarea{resize:vertical;min-height:90px}
+.note{font-size:13px;color:#6d6a64;margin-top:16px}
+
+footer{padding:64px var(--margin);display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;font-size:12px;color:#6d6a64}
+footer h4{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone);margin-bottom:12px}
+footer div{line-height:2}
+.wa{position:fixed;right:20px;bottom:20px;z-index:90;background:var(--gold);color:#000;padding:14px 20px;border-radius:2px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}*{transition:none!important;animation:none!important}}
+
+@media(max-width:900px){
+  :root{--margin:20px;--gutter:12px}
+  header{grid-template-columns:1fr;padding:110px var(--margin) 48px;gap:32px;align-items:start}
+  .hmedia{aspect-ratio:4/5;order:-1}
+  .links{display:none}
+  .trust{gap:20px;font-size:10px}
+  section{padding:72px var(--margin)}
+  .c1,.c2,.c3,.c4,.c5,.c6,.c7{grid-column:span 12;aspect-ratio:4/5}
+  .srow{grid-template-columns:36px 1fr;gap:12px;row-gap:8px}
+  .sprice{text-align:left;grid-column:2}
+  .arrow{display:none}
+  .prow{grid-template-columns:36px 1fr;row-gap:6px}
+  .prow p{grid-column:2}
+  .two{grid-template-columns:1fr;gap:36px}
+  form{grid-template-columns:1fr}
+  .field.full{grid-column:span 1}
+  .stats{gap:28px}
+}
+</style>
+</head>
+<body>
+
+<div id="pre"><span>JUSTG_VIBEZ</span></div>
+
+<nav id="nav">
+  <a href="#top" class="brand">JUSTG<em>_</em>VIBEZ</a>
+  <div class="links">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="pill">Book a shoot</a>
+</nav>
+
+<header id="top">
+  <div class="hcopy">
+    <p class="eyebrow">Abuja · Lagos on request · Est. 2019</p>
+    <h1>Photographs that hold their weight.</h1>
+    <p class="hsub">A small studio in Abuja making portraits, campaigns and weddings for people who care how they're remembered.</p>
+    <div class="ctas">
+      <a href="#contact" class="btn">Book a shoot</a>
+      <a href="#work" class="btn ghost">View work</a>
+    </div>
+  </div>
+  <div class="hmedia"><img src="hero.jpg" alt="Editorial portrait shot in the JUSTG_VIBEZ studio, Abuja"></div>
+  <div class="hmeta"><span>01 / 06</span><span>Scroll</span></div>
+</header>
+
+<div class="trust">
+  <span><b>Trusted by</b></span>
+  <span>Meridian Group</span><span>Aso Collective</span><span>Kola &amp; Co.</span><span>Northline</span><span>Efe Studios</span>
+  <span style="margin-left:auto"><b>4.9 on Google</b> · 180 reviews</span>
+</div>
+
+<section id="work">
+  <div class="shead">
+    <div><p class="eyebrow">Selected work</p><h2>Recent frames</h2></div>
+    <span class="idx">02 / 06</span>
+  </div>
+  <p class="sintro">Portraits, campaigns and weddings. Shot in Abuja, delivered in ten to fourteen days.</p>
+  <div class="grid">
+    <div class="card c1 rv"><img src="w1.jpg" alt="Fashion editorial, terracotta dress against concrete"></div>
+    <div class="card c2 rv"><img src="w2.jpg" alt="Studio portrait, man in black turtleneck"></div>
+    <div class="card c3 rv"><img src="w3.jpg" alt="Beauty portrait, tight crop"></div>
+    <div class="card c4 rv"><img src="w4.jpg" alt="Profile portrait in black headwrap"></div>
+    <div class="card c5 rv"><img src="w5.jpg" alt="Brand still life, amber bottle on stone"></div>
+    <div class="card c6 rv"><img src="w6.jpg" alt="Event coverage at a gallery opening"></div>
+    <div class="card c7 rv"><img src="w7.jpg" alt="Corporate portrait in an Abuja office lobby"></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="shead">
+    <div><p class="eyebrow">Services</p><h2>What we shoot</h2></div>
+    <span class="idx">03 / 06</span>
+  </div>
+  <p class="sintro">Rates below are starting points. Every brief gets a call before a camera comes out.</p>
+
+  <div class="srow"><span class="snum">01</span><div><h3>Portrait sitting</h3><p>Two hours in studio, three looks, fifteen retouched frames, five-day delivery.</p></div><span class="sprice">From ₦150,000</span><span class="arrow">↗</span></div>
+  <div class="srow"><span class="snum">02</span><div><h3>Brand &amp; campaign</h3><p>Half or full day, art direction included, forty-plus frames, usage licensing.</p></div><span class="sprice">Rate on request</span><span class="arrow">↗</span></div>
+  <div class="srow"><span class="snum">03</span><div><h3>Wedding</h3><p>Full day, second shooter, five hundred-plus frames, fourteen-day delivery.</p></div><span class="sprice">From ₦850,000</span><span class="arrow">↗</span></div>
+  <div class="srow"><span class="snum">04</span><div><h3>Event &amp; coverage</h3><p>Up to six hours, two hundred-plus frames, seventy-two-hour preview.</p></div><span class="sprice">From ₦400,000</span><span class="arrow">↗</span></div>
+</section>
+
+<section>
+  <div class="shead">
+    <div><p class="eyebrow">Process</p><h2>How it runs</h2></div>
+    <span class="idx">04 / 06</span>
+  </div>
+  <div class="prow"><span class="snum">01</span><h3>Enquiry</h3><p>Form or WhatsApp. Send the date, the brief and a budget range.</p></div>
+  <div class="prow"><span class="snum">02</span><h3>Call</h3><p>Twenty minutes. We scope the work, you decide if it fits.</p></div>
+  <div class="prow"><span class="snum">03</span><h3>Shoot day</h3><p>Call sheet shared forty-eight hours ahead. Sixty percent deposit holds the date.</p></div>
+  <div class="prow"><span class="snum">04</span><h3>Delivery</h3><p>Graded gallery, download link, print release. Balance settles before handover.</p></div>
+</section>
+
+<section id="studio">
+  <div class="two">
+    <div class="img rv"><img src="w8.jpg" alt="The studio founder in the JUSTG_VIBEZ space"></div>
+    <div class="rv">
+      <p class="eyebrow">Studio</p>
+      <h2 style="font-size:clamp(30px,3.6vw,56px);margin:20px 0 24px">Small by design</h2>
+      <p>JUSTG_VIBEZ is an Abuja studio founded in 2019. We work with founders, public figures and couples who'd rather be shot well than shot quickly.</p>
+      <p>We take a limited number of projects each month. Nothing leaves the studio that we wouldn't hang ourselves. Discretion is standard — nothing is published without a written yes.</p>
+      <div class="stats">
+        <div class="stat"><b>6</b><span>Years</span></div>
+        <div class="stat"><b>400+</b><span>Shoots</span></div>
+        <div class="stat"><b>14</b><span>Day delivery</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shead">
+    <div><p class="eyebrow">Questions</p><h2>Before you book</h2></div>
+    <span class="idx">05 / 06</span>
+  </div>
+  <details><summary>How fast is delivery?</summary><p>Ten to fourteen working days depending on scope. Previews inside seventy-two hours.</p></details>
+  <details><summary>Do I get the raw files?</summary><p>Retouched selects are included in every package. Raw files on request for ₦50,000.</p></details>
+  <details><summary>Do you travel to Lagos?</summary><p>Yes. Travel and accommodation are billed at cost on top of the rate.</p></details>
+  <details><summary>What's the deposit?</summary><p>Sixty percent to hold a date. Non-refundable inside seven days of the shoot.</p></details>
+  <details><summary>Who owns the images?</summary><p>You get full usage rights. We retain portfolio rights unless you opt out in writing.</p></details>
+  <details><summary>Do you reshoot?</summary><p>Once, free of charge, if the fault is ours.</p></details>
+</section>
+
+<section id="contact">
+  <div class="shead">
+    <div><p class="eyebrow">Contact</p><h2>Book a shoot</h2></div>
+    <span class="idx">06 / 06</span>
+  </div>
+  <p class="sintro">Tell us the date, the brief and your budget range. We reply within 24 hours, Monday to Saturday.</p>
+  <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;grid-column:span 2;color:var(--gold);font-size:15px&quot;>Received. We\'ll come back to you within 24 hours.</p>'">
+    <div class="field"><label>Name</label><input required placeholder="Your name"></div>
+    <div class="field"><label>Email</label><input type="email" required placeholder="you@email.com"></div>
+    <div class="field"><label>WhatsApp</label><input placeholder="+234"></div>
+    <div class="field"><label>Shoot type</label><select><option>Portrait</option><option>Brand &amp; campaign</option><option>Wedding</option><option>Event</option></select></div>
+    <div class="field"><label>Date</label><input type="date"></div>
+    <div class="field"><label>Budget range</label><input placeholder="₦"></div>
+    <div class="field full"><label>Brief</label><textarea placeholder="What are we shooting, and where?"></textarea></div>
+    <div class="field full"><button class="btn" style="border:0;cursor:pointer;font-family:Inter">Send enquiry</button></div>
+  </form>
+  <p class="note">Studio in Abuja · Lagos on request · Mon–Sat, 9:00–18:00</p>
+</section>
+
+<footer>
+  <div><h4>JUSTG_VIBEZ</h4>Abuja, Nigeria<br>Lagos on request<br>Est. 2019</div>
+  <div><h4>Studio</h4><a href="#work">Work</a><br><a href="#services">Services</a><br><a href="#studio">About</a></div>
+  <div><h4>Contact</h4>hello@justgvibez.com<br>+234 000 000 0000<br>Mon–Sat, 9:00–18:00</div>
+  <div><h4>Social</h4>Instagram<br>Behance<br>WhatsApp</div>
+</footer>
+
+<a href="#contact" class="wa">WhatsApp</a>
+
+<script>
+  const pre = document.getElementById('pre');
+  window.addEventListener('load', () => setTimeout(() => { pre.classList.add('done'); document.body.classList.add('loaded'); }, 700));
+
+  const nav = document.getElementById('nav');
+  let last = 0;
+  addEventListener('scroll', () => { const y = scrollY; nav.classList.toggle('hide', y > last && y > 200); last = y; }, {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.rv').forEach((el, i) => { el.style.transitionDelay = (i % 3) * 70 + 'ms'; io.observe(el); });
+</script>
+</body>
+</html>
